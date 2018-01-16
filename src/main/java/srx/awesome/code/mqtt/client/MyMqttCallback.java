@@ -5,9 +5,8 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-import java.util.Arrays;
-
 class MyMqttCallback implements MqttCallback {
+    @Override
     public void connectionLost(Throwable arg0) {
         System.out.println("Connection Lost:"+arg0.getMessage());
     }
@@ -19,5 +18,8 @@ class MyMqttCallback implements MqttCallback {
 
     @Override
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
+        if(iMqttDeliveryToken.isComplete()){
+            System.out.println(String.format("Delivery a Msg to Topic: %s",iMqttDeliveryToken.getTopics()[0]));
+        }
     }
 }

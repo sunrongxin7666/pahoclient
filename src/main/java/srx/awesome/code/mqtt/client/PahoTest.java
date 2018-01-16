@@ -3,12 +3,19 @@ package srx.awesome.code.mqtt.client;
 import org.eclipse.paho.client.mqttv3.*;
 
 public class PahoTest {
-    private static String topic        = "MQTT Examples";
+    //关注的主题
+    private static String topic        = "MQTT Examples";//
+    //发送的内容
     private static String content      = "Hello MQTT!!!!!";
-    private static int qos             = 2;
+    //质量等级
+    private static int qos             = 0;
+    //MQTT服务地址
     private static String broker       = "tcp://iot.eclipse.org:1883";
+    //客户端ID
     private static String clientId     = "JavaSample";
+    //用户名
     private static String userName     = "admin";
+    //密码
     private static String passWord     = "password";
 
     @SuppressWarnings("finally")
@@ -52,7 +59,7 @@ public class PahoTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            System.exit(0);
+            //System.exit(0);
         }
     }
 
